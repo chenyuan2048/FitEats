@@ -1,5 +1,10 @@
+import datetime
 from zhipuai import ZhipuAI
 from pydantic import BaseModel
+from typing import List, Dict
+from fastapi import FastAPI, File, UploadFile
+from oss2 import to_bytes, Bucket, Auth
+
 
 class GLM4vModel:
     def __init__(self, api_key:str):
@@ -52,3 +57,21 @@ class GLM4Model:
         print(f"GLM-4 model prediction for {data}")
         return data
 
+
+class OSSBucket:
+    def __init__(self, access_key_id: str, access_key_secret: str, bucket_name: str, endpoint: str):
+        self.auth = Auth(access_key_id, access_key_secret)
+        self.bucket = Bucket(self.auth, endpoint, bucket_name)
+
+    def upload_file(self, file_content: bytes, object_name: str) -> str:
+        
+        self.bucket.put_object(object_name, to_bytes(file_content))
+        print(f"Uploaded file_path to {object_name}")
+        # 如果需要生成URL，可以使用下面的代码生成预签名URL
+        return {"status": "success", "object_key": object_name }
+    
+    def get_image_url(self, object_name: str) -> str:
+        # 设置预签名URL的过期时间
+        expiration = datetime.datetime.now() + datetime.timedelta(minutes=30)
+        expiration_timestamp = int(expiration.timestamp())
+        return self.bucket.sign_url('GET', object_name,expiration_timestamp)

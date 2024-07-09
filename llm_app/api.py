@@ -5,8 +5,9 @@ import os
 import logging
 
 from fastapi import APIRouter, HTTPException
-from llm_app.schemas import PredictionRequest, PredictionResponse
+from llm_app.schemas import PredictionRequest, PredictionResponse,HelloWorldResponse
 from llm_app.services import GLM4Service, GLM4vService
+from llm_app.models import OSSBucket
 from zhipuai import ZhipuAI
 
 from fastapi.responses import JSONResponse
@@ -16,14 +17,20 @@ from typing import Optional
 
 
 logging.basicConfig(level=logging.DEBUG)
-
+logger = logging.getLogger("uvicorn")
 
 app = FastAPI()
 router = APIRouter()
 # 将 APIRouter 添加到 FastAPI 应用
 app.include_router(router)
 
-API_KEY = "379793e1782fc2d83dbad98b35311a70.71ZPhNbpa3TgSwKk"
+# 配置API KEY
+API_KEY = ""
+# 阿里云OSS的配置信息
+ENDPOINT = 'oss-.aliyuncs.com'  # 替换为OSS服务的endpoint
+ACCESS_KEY_ID = '' #你的AccessKeyId
+ACCESS_KEY_SECRET = '' #你的AccessKeySecret
+BUCKET_NAME = 'fiteats-oss' 
 
 @router.get("/")
 async def read_hello_world():
@@ -41,12 +48,30 @@ async def read_hello_world():
 async def upload_file(file: UploadFile = File(...))-> JSONResponse:
     try:
         # 读取文件内容
-        contents = await file.read()
-        # 将文件内容写入到服务器上的一个文件中
-        with open("/home/cheny/codes/langchain_practice/fiteats_app/llm_app/image_data/data_file.txt", "wb") as f:
-            f.write(contents)
-        return JSONResponse(status_code=200, content={"filename":file.filename, "size": len(contents), 
-            "message": "Image received and processed successfully"})
+        filename = file.filename # 获取文件名
+        oss_name = f'foods/{filename}' # oss中存放的文件名称
+         # 将上传的文件保存到服务器上的临时路径
+        # 读取文件内容为二进制
+        file_content = await file.read()
+        print(type(file_content))
+
+        bucket = OSSBucket(ACCESS_KEY_ID, ACCESS_KEY_SECRET, BUCKET_NAME, ENDPOINT)
+        result = bucket.upload_file(file_content,oss_name)
+        if result["status"] == "success":
+            image_url = bucket.get_image_url(oss_name)
+            return JSONResponse(
+                status_code=200,
+                content={
+                    "filename": filename,
+                    "image_url": image_url,
+                    "message": "File uploaded to OSS successfully"
+                }
+            )
+        else:
+            return JSONResponse(
+                status_code=500,
+                content={"error": "Failed to upload file to OSS"}
+            )
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
@@ -73,7 +98,7 @@ async def predict_glm4v(request: PredictionRequest):
 
 # 全局异常处理器
 @app.exception_handler(Exception)
-async def custom_exception_handler(request, exc):
+async def global_exception_handler(request, exc):
     # 返回一个 JSON 响应
     return JSONResponse(
         status_code=500,

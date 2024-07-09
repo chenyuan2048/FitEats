@@ -2,3 +2,4 @@ fastapi
 uvicorn
 pydantic
 zhipuai
+aliyun-python-sdk-core
