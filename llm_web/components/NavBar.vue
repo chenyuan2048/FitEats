@@ -1,0 +1,53 @@
+<template>
+  <view class="nav-bar">
+    <button v-for="item in navItems" :key="item.text" class="nav-item">
+      <image :src="item.icon" class="nav-icon"/>
+      <text>{{ item.text }}</text>
+    </button>
+  </view>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      navItems: [
+        { icon: '/static/home/icons/每日饮食.png', text: '每日饮食' },
+        { icon: '/static/home/icons/健康食谱.png', text: '健康食谱' },
+        { icon: '/static/home/icons/习惯打卡.png', text: '打卡记录' },
+		{ icon: '/static/home/icons/饮食习惯.png', text: '饮食习惯' },
+		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
+		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
+		{ icon: '/static/home/icons/饮食习惯.png', text: '饮食习惯' },
+		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
+		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped>
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap; /* 自动换行 */
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px; /* 调整元素间距 */
+  width: calc(25% - 20px); /* 使每行显示4个元素，考虑间距 */
+  max-width: 120px; /* 控制每个按钮的最大宽度 */
+}
+.nav-icon {
+  width: 64px;
+  height: 64px;
+}
+.nav-text {
+  font-size: 50px; /* 调整标题字体大小 */
+  margin-top: 2px; /* 调整标题与图标的间距 */
+}
+</style>

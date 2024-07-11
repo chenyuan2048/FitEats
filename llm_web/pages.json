@@ -1,17 +1,73 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path": "pages/Home",
+            "style": {
+                "navigationBarTitleText": "FitEats"
+            }
+        },
+        {
+            "path": "pages/record/record",
+            "style": {
+                "navigationBarTitleText": "Record"
+            }
+        },
+        {
+            "path": "pages/discover/discover",
+            "style": {
+                "navigationBarTitleText": "Discover"
+            }
+        },
+        {
+            "path": "pages/settings/setting",
+            "style": {
+                "navigationBarTitleText": "Setting"
+            }
+        },
 		{
-			"path": "pages/index/index",
+			"path": "pages/AIChat",
 			"style": {
 				"navigationBarTitleText": "FitEats"
 			}
 		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "FitEats 美食健康助手",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"uniIdRouter": {}
+    ],
+    "tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#F8F8F8",
+        "list": [
+            {
+                "pagePath": "pages/Home",
+                "iconPath": "static/home/image/轻食.jpg",
+                "selectedIconPath": "static/home/image/沙拉.jpg",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/record/record",
+                "iconPath": "static/icons/习惯打卡.png",
+                "selectedIconPath": "static/home/image/轻食.jpg",
+                "text": "记录"
+            },
+            {
+                "pagePath": "pages/discover/discover",
+                "iconPath": "static/home/icons/习惯打卡.png",
+                "selectedIconPath": "static/home/icons/习惯打卡.png",
+                "text": "发现"
+            },
+            {
+                "pagePath": "pages/settings/setting",
+                "iconPath": "static/home/icons/健康食谱.png",
+                "selectedIconPath": "static/home/icons/健康食谱.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "FitEats 美食健康助手",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#F8F8F8"
+    },
+    "uniIdRouter": {}
 }
