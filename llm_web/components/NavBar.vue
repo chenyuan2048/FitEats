@@ -16,11 +16,10 @@ export default {
         { icon: '/static/home/icons/健康食谱.png', text: '健康食谱' },
         { icon: '/static/home/icons/习惯打卡.png', text: '打卡记录' },
 		{ icon: '/static/home/icons/饮食习惯.png', text: '饮食习惯' },
-		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
-		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
-		{ icon: '/static/home/icons/饮食习惯.png', text: '饮食习惯' },
-		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
-		{ icon: '/static/home/icons/科学记录.png', text: '科学记录' },
+		// { icon: '/static/home/icons/科学记录.png', text: '科学记录' },
+		// { icon: '/static/home/icons/科学记录.png', text: '科学记录' },
+		// { icon: '/static/home/icons/饮食习惯.png', text: '饮食习惯' },
+		// { icon: '/static/home/icons/科学记录.png', text: '科学记录' }
       ]
     }
   }
@@ -39,15 +38,13 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px; /* 调整元素间距 */
-  width: calc(25% - 20px); /* 使每行显示4个元素，考虑间距 */
+  width: calc(25% - 5px); /* 使每行显示4个元素，考虑间距 */
   max-width: 120px; /* 控制每个按钮的最大宽度 */
+  font-size: 15px; /* 调整标题字体大小 */
+  margin-top: 5px; /* 调整标题与图标的间距 */
 }
 .nav-icon {
   width: 64px;
   height: 64px;
-}
-.nav-text {
-  font-size: 50px; /* 调整标题字体大小 */
-  margin-top: 2px; /* 调整标题与图标的间距 */
 }
 </style>
