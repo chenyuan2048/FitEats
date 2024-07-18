@@ -29,7 +29,7 @@ API_KEY = ""
 ENDPOINT = 'oss-.aliyuncs.com'  # 替换为OSS服务的endpoint
 ACCESS_KEY_ID = '' #你的AccessKeyId
 ACCESS_KEY_SECRET = '' #你的AccessKeySecret
-BUCKET_NAME = 'fiteats-oss' 
+BUCKET_NAME = 'fiteats-oss'
 
 @router.get("/")
 async def read_hello_world():

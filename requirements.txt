@@ -3,3 +3,4 @@ uvicorn
 pydantic
 zhipuai
 aliyun-python-sdk-core
+pandas = 2.8.4

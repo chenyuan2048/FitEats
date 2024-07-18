@@ -28,7 +28,7 @@
 		{
 			"path": "pages/AIChat",
 			"style": {
-				"navigationBarTitleText": "ChatEats"
+				"navigationBarTitleText": "ChatEats,您的美食健康专家"
 			}
 		}
     ],
