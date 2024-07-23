@@ -24,19 +24,11 @@ router = APIRouter()
 app.include_router(router)
 
 # # 配置API KEY
-# API_KEY = ""
-# # 阿里云OSS的配置信息
-# ENDPOINT = 'oss-.aliyuncs.com'  # 替换为OSS服务的endpoint
-# ACCESS_KEY_ID = '' #你的AccessKeyId
-# ACCESS_KEY_SECRET = '' #你的AccessKeySecret
-# BUCKET_NAME = 'fiteats-oss'
-
-# 配置API KEY
-API_KEY = "379793e1782fc2d83dbad98b35311a70.71ZPhNbpa3TgSwKk"
+API_KEY = ""
 # 阿里云OSS的配置信息
-ENDPOINT = 'oss-cn-shenzhen.aliyuncs.com' # 替换为OSS服务的endpoint
-ACCESS_KEY_ID = 'LTAI5tEwpqK59tqc52xLp9Bx' #你的AccessKeyId
-ACCESS_KEY_SECRET = '2Zsg1UwjsEwSv4ZxATgicSPEwe3yJn' #你的AccessKeySecret
+ENDPOINT = 'oss-.aliyuncs.com'  # 替换为OSS服务的endpoint
+ACCESS_KEY_ID = '' #你的AccessKeyId
+ACCESS_KEY_SECRET = '' #你的AccessKeySecret
 BUCKET_NAME = 'fiteats-oss'
 
 @router.get("/")
