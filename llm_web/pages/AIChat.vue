@@ -83,7 +83,7 @@ export default {
 .chat-page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 85vh;
   background-color: #dcffc0;
 }
 

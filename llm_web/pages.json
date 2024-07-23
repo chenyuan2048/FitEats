@@ -30,6 +30,13 @@
 			"style": {
 				"navigationBarTitleText": "ChatEats,您的美食健康专家"
 			}
+		},
+		{
+			"path" : "pages/tools/iodine",
+			"style" : 
+			{
+				"navigationBarTitleText" : "碘含量查询"
+			}
 		}
     ],
 	"globalStyle": {

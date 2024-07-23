@@ -23,12 +23,20 @@ router = APIRouter()
 # 将 APIRouter 添加到 FastAPI 应用
 app.include_router(router)
 
+# # 配置API KEY
+# API_KEY = ""
+# # 阿里云OSS的配置信息
+# ENDPOINT = 'oss-.aliyuncs.com'  # 替换为OSS服务的endpoint
+# ACCESS_KEY_ID = '' #你的AccessKeyId
+# ACCESS_KEY_SECRET = '' #你的AccessKeySecret
+# BUCKET_NAME = 'fiteats-oss'
+
 # 配置API KEY
-API_KEY = ""
+API_KEY = "379793e1782fc2d83dbad98b35311a70.71ZPhNbpa3TgSwKk"
 # 阿里云OSS的配置信息
-ENDPOINT = 'oss-.aliyuncs.com'  # 替换为OSS服务的endpoint
-ACCESS_KEY_ID = '' #你的AccessKeyId
-ACCESS_KEY_SECRET = '' #你的AccessKeySecret
+ENDPOINT = 'oss-cn-shenzhen.aliyuncs.com' # 替换为OSS服务的endpoint
+ACCESS_KEY_ID = 'LTAI5tEwpqK59tqc52xLp9Bx' #你的AccessKeyId
+ACCESS_KEY_SECRET = '2Zsg1UwjsEwSv4ZxATgicSPEwe3yJn' #你的AccessKeySecret
 BUCKET_NAME = 'fiteats-oss'
 
 @router.get("/")
@@ -42,13 +50,13 @@ async def read_hello_world():
         raise HTTPException(status_code=500, detail={"error": str(e)})
 
 
-@router.post("/upload/")
+@router.post("/upload")
 async def upload_file(file: UploadFile = File(...))-> JSONResponse:
     try:
         # 读取文件内容
         filename = file.filename # 获取文件名
         oss_name = f'foods/{filename}' # oss中存放的文件名称
-         # 将上传的文件保存到服务器上的临时路径
+        # 将上传的文件保存到服务器上的临时路径
         # 读取文件内容为二进制
         file_content = await file.read()
         print(type(file_content))
