@@ -73,7 +73,7 @@ export default {
 		try {
 			const response = new Promise((resolve, reject) => {
 			            uni.request({
-			              url: 'http://127.0.0.1:8000/api/v1/predict/glm4v', // 分析图片的API端点
+			              url: 'http://120.25.255.19:8000/api/v1/predict/glm4v', // 分析图片的API端点
 			              method: 'POST',
 			              data: {
 			                input_data: {

@@ -45,43 +45,43 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-    "tabBar": {
-		"borderStyle": "black",
-		"backgroundColor": "#333",
-		"color": "#8F8F94",
-		"selectedColor": "#f33e54",
-		"list": [
-			{
-                "pagePath": "pages/Home",
-                "iconPath": "static/home/icons/健康食谱.png",
-                "selectedIconPath": "static/home/icons/健康食谱.png",
-                "text": "首页"
-            },
-            {
-                "pagePath": "pages/record/record",
-                "iconPath": "static/home/icons/每日饮食.png",
-                "selectedIconPath": "static/home/icons/每日饮食.png",
-                "text": "记录"
-            },
-			{
-				"pagePath": "pages/AIChat",
-				"iconPath": "static/home/icons/饮食习惯.png",
-				"selectedIconPath": "static/home/icons/饮食习惯.png",
-				"text": "ChatAI"
-			},
-            {
-                "pagePath": "pages/discover/discover",
-                "iconPath": "static/home/icons/习惯打卡.png",
-                "selectedIconPath": "static/home/icons/习惯打卡.png",
-                "text": "发现"
-            },
-            {
-                "pagePath": "pages/settings/setting",
-                "iconPath": "static/home/icons/健康食谱.png",
-                "selectedIconPath": "static/home/icons/健康食谱.png",
-                "text": "我的"
-            }
-        ]
-    },
+  //   "tabBar": {
+		// "borderStyle": "black",
+		// "backgroundColor": "#333",
+		// "color": "#8F8F94",
+		// "selectedColor": "#f33e54",
+		// "list": [
+		// 	{
+  //               "pagePath": "pages/Home",
+  //               "iconPath": "static/home/icons/健康食谱.png",
+  //               "selectedIconPath": "static/home/icons/健康食谱.png",
+  //               "text": "首页"
+  //           },
+  //           {
+  //               "pagePath": "pages/record/record",
+  //               "iconPath": "static/home/icons/每日饮食.png",
+  //               "selectedIconPath": "static/home/icons/每日饮食.png",
+  //               "text": "记录"
+  //           },
+		// 	{
+		// 		"pagePath": "pages/AIChat",
+		// 		"iconPath": "static/home/icons/饮食习惯.png",
+		// 		"selectedIconPath": "static/home/icons/饮食习惯.png",
+		// 		"text": "ChatAI"
+		// 	},
+  //           {
+  //               "pagePath": "pages/discover/discover",
+  //               "iconPath": "static/home/icons/习惯打卡.png",
+  //               "selectedIconPath": "static/home/icons/习惯打卡.png",
+  //               "text": "发现"
+  //           },
+  //           {
+  //               "pagePath": "pages/settings/setting",
+  //               "iconPath": "static/home/icons/健康食谱.png",
+  //               "selectedIconPath": "static/home/icons/健康食谱.png",
+  //               "text": "我的"
+  //           }
+  //       ]
+  //   },
     "uniIdRouter": {}
 }

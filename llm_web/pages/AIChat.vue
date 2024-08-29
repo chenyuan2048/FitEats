@@ -39,7 +39,7 @@ export default {
         try {
           const response = await new Promise((resolve, reject) => {
             uni.request({
-              url: 'http://127.0.0.1:8000/api/v1/predict/glm4',
+              url: 'http://120.25.255.19:8000/api/v1/predict/glm4',
               method: 'POST',
               data: {
                 input_data: {

@@ -1,6 +1,9 @@
 <template>
   <view class="record-list">
-    <view class="record-item" v-for="record in records" :key="record.title">
+    <view class="record-item" 
+		  v-for="record in records" 
+		  :key="record.title"
+		  @click="() => handleRecordClick(record.title)">
       <image :src="record.image" class="record-image" />
       <view class="record-text">
         <text class="record-title">{{ record.title }}</text>
@@ -11,6 +14,8 @@
 </template>
 
 <script>
+import { reactive } from 'vue';
+
 export default {
   data() {
     return {
@@ -33,6 +38,30 @@ export default {
 
       ]
     }
+  },
+  methods: {
+	  handleRecordClick(title) {
+		  switch (title) {
+			case "AI营养分析师":
+			  uni.navigateTo({
+				  url: '/pages/AIChat'
+			  });
+			  break;
+			case "每日饮食":
+			  uni.navigateTo({
+				  url: '/pages/record/record'
+			  });
+			  break;
+			case '健康监测':
+			  uni.navigateTo({
+				  url: '/pages/discover/discover'
+			  });
+			  break;
+			  // 可以继续添加更多的CASE分支
+			default:
+			  console.warn('Unhandled title: ${title}')
+		  }
+	  }
   }
 }
 </script>
